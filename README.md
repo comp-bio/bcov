@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-wget https://github.com/comp-bio/Bed2Cov/raw/main/build/bed2cov_$(uname) -o ./bed2cov
+wget https://github.com/comp-bio/Bed2Cov/raw/main/build/bed2cov_$(uname) -O ./bed2cov
 chmod +x bed2cov
 ```
 
