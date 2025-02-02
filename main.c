@@ -8,19 +8,22 @@ int main(int argc, char *argv[])
     char delim[] = "\t";
     char chr_last[256];
     unsigned int position = 0;
-    FILE * f = NULL;
+    FILE *f = NULL;
 
-    while (fgets(buf, sizeof buf, stdin)) {
-        char * ptr = strtok(buf, delim);
+    while (fgets(buf, sizeof buf, stdin))
+    {
+        char *ptr = strtok(buf, delim);
         char chr[256];
         strcpy(chr, ptr);
-        
+
         unsigned int start;
         unsigned int stop;
         unsigned int coverage;
 
-        if (strcmp(chr_last, chr) != 0) {
-            if (f != NULL) {
+        if (strcmp(chr_last, chr) != 0)
+        {
+            if (f != NULL)
+            {
                 fclose(f);
                 position = 0;
             }
@@ -37,22 +40,30 @@ int main(int argc, char *argv[])
 
         ptr = strtok(NULL, delim);
 
-        if (ptr != NULL) {
+        if (ptr != NULL)
+        {
             coverage = atoi(ptr);
-        } else {
+        }
+        else
+        {
             coverage = stop;
             stop = start + 1;
         }
 
-        while (position < start) {
+        while (position < start)
+        {
             fputc(0, f);
             fputc(0, f);
             position++;
         }
 
-        if (coverage > 255 * 255) coverage = 255 * 255;
+        if (coverage > 256 * 256 - 1)
+        {
+            coverage = 256 * 256 - 1;
+        }
 
-        while (position < stop) {
+        while (position < stop)
+        {
             fputc((coverage >> 8) & 0xFF, f);
             fputc(coverage & 0xFF, f);
             position++;
