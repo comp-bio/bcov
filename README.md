@@ -6,6 +6,8 @@ A compact and simple format for storing genome coverage depth data.
 Exactly 2 bytes are used to store information about the depth of reads for each position in the genome.
 Thus, the format can store integer values ​​of coverage depth in the range from 0 to 65535 ([unsigned short](https://en.cppreference.com/w/cpp/types/integer)).
 
+![](./fig1.png)
+
 ## How to read data from `.bcov` file:
 
 ```python
