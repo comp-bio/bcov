@@ -1,6 +1,4 @@
-# .BCOV
-
-Binary Coverage data format.
+# .bcov • Binary Coverage data format.
 
 A compact and simple format for storing genome coverage depth data.
 Exactly 2 bytes are used to store information about the depth of reads for each position in the genome.
