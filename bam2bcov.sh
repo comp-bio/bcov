@@ -43,15 +43,15 @@ if [ ! -f "${file_link}.bai" ]; then
     err $line
     err "ERROR! samtools not found!\n"
   fi
-  log "samtools index ${file_link} ...\n"
+  log "samtools index ${file_link}"
   samtools index "${file_link}"
 fi
 
 # --------------------------------------------------------------------------- #
 # 3. Extract depth-of-coverage from .bam file
 if [ ! -f "${file_raw}.per-base.bed.gz" ]; then
-  log "Extracting depth-of-coverage\n"
-  ./mosdepth -t "$threads" "${file_raw}" "${file}";
+  log "Extracting depth-of-coverage"
+  ./mosdepth -t "$threads" "${file_raw}" "${file_link}";
 fi
 
 # --------------------------------------------------------------------------- #
@@ -62,4 +62,4 @@ cd "${file_raw}"
 gzip -cd ../"${file_raw}".per-base.bed.gz | ../bed2cov
 # rm -f ./*_*.bcov ./*HLA*.bcov ./*EBV.bcov GL00*.bcov hs37d5.bcov
 cd ../
-rm -rf "${file_raw}.*" "${file_link}*" 
+rm -rf "${file_raw}.*"
