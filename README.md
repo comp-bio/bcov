@@ -66,7 +66,7 @@ cat text/example.bed | ./bed2cov
 ```
 
 To get the `.bed` file of the coverage from your `.bam` or `.cram` file,
-use (mosdepth)[https://github.com/brentp/mosdepth].
+use [mosdepth](https://github.com/brentp/mosdepth).
 
 Automated pipeline for converting .bam to .bcob:
 
