@@ -75,3 +75,10 @@ wget https://github.com/comp-bio/bcov/raw/main/bam2bcov.sh
 chmod +x bam2bcov.sh
 ./bam2bcov.sh src.bam
 ```
+
+## Python script for converting `.bam` to `.bedgraph`:
+
+```bash
+wget https://github.com/comp-bio/bcov/raw/main/bcov2bedgraph.py
+python3 ./bcov2bedgraph.py test/example.bcov > example.bedgraph
+```
